@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=ucl_learning_site
+POSTGRES_USER=WDRJKyevtkjmbiYCiPoKRNenMBoYizYy
+POSTGRES_PASSWORD=JkFc7nDTsziPGdtiT1xQ6lo3YV9SZuJg1X0m4Xb1f3mqTaA8I3U42An1FMyT4Yww
