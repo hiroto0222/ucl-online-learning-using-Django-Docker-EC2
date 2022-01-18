@@ -74,6 +74,7 @@ THIRD_PARTY_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'nested_admin',
+    "corsheaders",
 ]
 
 LOCAL_APPS = [
@@ -127,6 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
@@ -275,6 +277,9 @@ SOCIALACCOUNT_FORMS = {"signup": "ucl_learning_site.users.forms.UserSocialSignup
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+# CORS
+CORS_ALLOW_ALL_ORIGINS = True
+
 # CKEDITOR
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_ALLOW_NONIMAGE_FILES = False

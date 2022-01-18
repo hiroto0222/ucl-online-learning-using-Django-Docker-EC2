@@ -28,7 +28,7 @@ certificatesResolvers:
 http:
   routers:
     web-secure-router:
-      rule: "Host(`example.com`) || Host(`www.example.com`)"
+      rule: "Host(`ucl-online-learing-prototype.ga`) || Host(`www.ucl-online-learing-prototype.ga`)"
       entryPoints:
         - web-secure
       middlewares:

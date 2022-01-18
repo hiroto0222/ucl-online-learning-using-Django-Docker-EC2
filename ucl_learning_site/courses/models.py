@@ -12,11 +12,7 @@ User = get_user_model()
 class Course(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(default=title)
-    description = RichTextField(config_name = 'default', external_plugin_resources=[(
-        'mathjax',
-        '/static/ckeditor/ckeditor/plugins/mathjax/',
-        'plugin.js',
-    )])
+    description = RichTextField(config_name='default')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -40,11 +36,7 @@ class Module(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
-    content = RichTextField(config_name = 'default', external_plugin_resources=[(
-        'mathjax',
-        '/static/ckeditor/ckeditor/plugins/mathjax/',
-        'plugin.js',
-    )])
+    content = RichTextField(config_name = 'default')
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
@@ -83,11 +75,7 @@ class Question(models.Model):
         choices=QUESTION_TYPES,
         default=MULTIPLE_CHOICE,
     )
-    prompt = RichTextField(config_name='default', external_plugin_resources=[(
-        'mathjax',
-        '/static/ckeditor/ckeditor/plugins/mathjax/',
-        'plugin.js',
-    )])
+    prompt = RichTextField(config_name='default')
     correct_answer = models.CharField(default="", max_length=255)
 
     class Meta:
