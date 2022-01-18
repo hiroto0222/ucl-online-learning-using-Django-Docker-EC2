@@ -276,3 +276,5 @@ ucl_learning_site/media/
 .env
 .envs/*
 !.envs/.local/
+
+ucl_learning_site/static/*

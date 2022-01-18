@@ -1,34 +1,23 @@
-{% extends "base.html" %}
+{% extends "dashboard.html" %}
 {% load static %}
 
+{% block nav_item_dashboard %}active{% endblock nav_item_dashboard %}
 {% block title %}User: {{ object.username }}{% endblock %}
 
-{% block content %}
-<div class="container">
-
-  <div class="row">
-    <div class="col-sm-12">
-
-      <h2>{{ object.username }}</h2>
-      {% if object.name %}
-        <p>{{ object.name }}</p>
-      {% endif %}
-    </div>
-  </div>
+{% block userdetail %}
+<h3 class="font-weight-bold">Welcome, {% if request.user.name %}{{ request.user.name }}{% else %}{{ request.user.username }}{% endif %}</h3>
 
 {% if object == request.user %}
 <!-- Action buttons -->
 <div class="row">
 
   <div class="col-sm-12">
-    <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">My Info</a>
-    <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">E-Mail</a>
+    <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">Update Profile</a>
+    <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">Change E-Mail</a>
     <!-- Your Stuff: Custom user template urls -->
   </div>
 
 </div>
 <!-- End Action buttons -->
 {% endif %}
-
-</div>
-{% endblock content %}
+{% endblock userdetail %}

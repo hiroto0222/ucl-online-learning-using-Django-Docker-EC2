@@ -5,6 +5,8 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
 
+from ucl_learning_site.courses.models import Course
+
 User = get_user_model()
 
 
@@ -14,6 +16,14 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     slug_field = "username"
     slug_url_kwarg = "username"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['courses'] = Course.objects.all()
+        module_cnt = 0
+        for course in context['courses']:
+            module_cnt += course.get_modules().count()
+        context['module_cnt'] = module_cnt
+        return context
 
 user_detail_view = UserDetailView.as_view()
 
@@ -21,7 +31,7 @@ user_detail_view = UserDetailView.as_view()
 class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     model = User
-    fields = ["name"]
+    fields = ["name", "nationality"]
     success_message = _("Information successfully updated")
 
     def get_success_url(self):

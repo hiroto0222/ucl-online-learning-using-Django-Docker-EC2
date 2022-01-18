@@ -1,17 +1,35 @@
-{% extends "base.html" %}
+{% extends "main_page.html" %}
 {% load crispy_forms_tags %}
 
 {% block title %}{{ user.username }}{% endblock %}
 
-{% block content %}
-  <h1>{{ user.username }}</h1>
-  <form class="form-horizontal" method="post" action="{% url 'users:update' %}">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <div class="control-group">
-      <div class="controls">
-        <button type="submit" class="btn btn-primary">Update</button>
+{% block innercontent %}
+
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 grid-margin">
+        <div class="row">
+          <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+              <h3 class="font-weight-bold">Update Profile: {{ user.username }}</h3>
+              <div class="row w-100 mx-0">
+                  <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                    <form class="form-horizontal" method="post" action="{% url 'users:update' %}">
+                      {% csrf_token %}
+                      {{ form|crispy }}
+                      <div class="control-group">
+                        <div class="controls">
+                          <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+          </div>
+        </div>
       </div>
     </div>
-  </form>
-{% endblock %}
+  </div>
+</div>
+
+{% endblock innercontent %}
