@@ -1,6 +1,6 @@
-# ucl-learning-site
+# Deploying UCL MOOC using Django, Docker, EC2, S3
 
-learning site for UCL
+online learning courses (MOOC) for UCL Physics and Astronomy 1st year students
 https://www.ucl-online-learing-prototype.ga/
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
