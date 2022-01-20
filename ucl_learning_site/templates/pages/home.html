@@ -2,67 +2,35 @@
 {% load static %}
 
 {% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 <style>
-    img {
-        width: 110%;
-        height: 110%;
-        object-fit: cover;
-    }
-    @media screen and (max-width: 991px) {
-        img {
-            display: none;
-        }
-    }
+	.hero {
+		background-image: url("{% static 'images/campus1.jpg' %}");
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+		position: relative;
+		z-index: 2;
+	}
 </style>
 {% endblock css %}
 
 
-{% block content %}
-<div class="flex col-12">
-    <div class="row h-100">
-        <div class="col-md-5 pl-5 d-flex flex-column justify-content-center align-items-center">
-            <div class="d-flex pl-5 flex-column flex-start">
-                <h1 class="pb-4" style="font-size: 5rem;">UCL <br> Online Learning</h1>
-                <h4 class="pl-3">for the department of <br> <strong>Physics and Astronomy</strong></h4>
-                <div class="mr-auto pl-3 pt-3">
-                  <a type="button" class="btn btn-block btn-success font-weight-medium" href="{% url 'account_login' %}">
-                      Get started
-                  </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-7 vh-96">
-            <img src="{% static 'images/campus1.jpg' %}" alt="ucl-campus-image">
-        </div>
-    </div>
+{% block landingpage %}
+<div class="container-scroller hero vh-100 d-flex align-items-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 col-md-8 mx-auto text-center">
+				<h1 class="font-weight-bold text-white pb-2">UCL Online Learning</h1>
+				<h4 class="py-2 display-4 mx-4 text-white">for the department of <br> <strong>Physics and Astronomy</h4>
+				<div class="mx-auto pt-2 col-lg-5 col-md-5">
+					<a type="button" class="btn btn-block btn-success font-weight-medium" href="{% url 'account_login' %}">
+						Get started
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
-
-    <!-- <div class="row">
-
-      <div class="col-md-6">
-
-        <div class="d-flex flex-column justify-content-center align-items-center h-100">
-          <h1 class="heading display-3">Material Design for Bootstrap</h1>
-          <h4 class="subheading font-weight-bold">World's most popular framework for building responsive, mobile-first websites and apps</h4>
-          <div class="mr-auto">
-            <button type="button" class="btn btn-lily btn-margin btn-rounded">Get started <i class="fas fa-caret-right ml-3"></i></button>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="col-md-6">
-
-        <div class="view">
-          <img src="https://images.pexels.com/photos/325045/pexels-photo-325045.webp" class="img-fluid" alt="smaple image">
-          <div class="mask flex-center hm-gradient">
-          </div>
-        </div>
-
-      </div>
-
-    </div> -->
-
-
-{% endblock content %}
+{% endblock landingpage %}

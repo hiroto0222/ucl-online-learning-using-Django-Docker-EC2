@@ -60,8 +60,8 @@
           <a class="navbar-brand brand-logo mr-5" href="{% url 'home' %}"><img src="{% static 'images/logo.svg' %}" class="mr-2" alt="logo"/></a>
         </div>
 
-        {% if request.user.is_authenticated %}
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          {% if request.user.is_authenticated %}
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
@@ -78,17 +78,21 @@
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="icon-menu"></span>
           </button>
+          {% endif %}
         </div>
-        {% endif %}
+        
 
       </nav>
-
+    
+      {% block landingpage %}
+      {% endblock landingpage %}
       <div class="container-fluid page-body-wrapper">
           {% block content %}
           <p> main content goes here </p>
           {% endblock content %}
       </div>
-
+    
+    </div>
     {% block modal %}{% endblock modal %}
 
     {% block inline_javascript %}
