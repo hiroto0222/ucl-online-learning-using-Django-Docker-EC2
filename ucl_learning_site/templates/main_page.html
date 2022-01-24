@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block navbar-toggle %}
+<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+  <span class="icon-menu"></span>
+</button>
+{% endblock navbar-toggle %}
+
+{% block content %}
+<!-- side bar nav -->
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item {% block nav_item_dashboard %}{% endblock nav_item_dashboard %}">
+        <a class="nav-link" href="{% url 'users:detail' request.user.username %}">
+          <i class="icon-grid menu-icon"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+
+      {% for course in courses %}
+      <li class="nav-item {% if course.slug == curr_course.slug %}active{% endif %}">
+        <a class="nav-link" data-toggle="collapse" href="#{{ course.slug }}" aria-expanded="false" aria-controls="{{ course.slug }}">
+          <i class="icon-layout menu-icon"></i>
+          <span class="menu-title">{{ course.get_course_title|linebreaks }}</span>
+        </a>
+        <div class="collapse {% if course.slug == curr_course.slug %}show{% endif %}" id="{{ course.slug }}">
+          <ul class="nav flex-column sub-menu open">
+            <li class="nav-item"> <a class="nav-link {% if request.path == course.get_absolute_url %}font-weight-bold{% endif %}" href="{{ course.get_absolute_url }}">About the course</a></li>
+            {% for module in course.get_modules %}
+            <li class="nav-item"> <a class="nav-link {% if request.path == module.get_absolute_url %}font-weight-bold{% endif %}" href="{{ module.get_absolute_url }}">
+                Module {{ forloop.counter }}: <br> {{ module.title }}
+            </a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+</nav>
+
+{% block innercontent %}
+{% endblock innercontent %}
+
+{% endblock content %}
