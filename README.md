@@ -1,6 +1,6 @@
-# ucl-learning-site
+# Deploying UCL MOOC using Django, Docker, EC2, S3
 
-learning site for UCL
+online learning courses (MOOC) for UCL Physics and Astronomy 1st year students
 https://www.ucl-online-learing-prototype.ga/
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
@@ -29,27 +29,3 @@ For convenience, you can keep your normal user logged in on Chrome and your supe
 Running type checks with mypy:
 
     $ mypy ucl_learning_site
-
-### Test coverage
-
-To run the tests, check your test coverage, and generate an HTML coverage report:
-
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
-
-#### Running tests with pytest
-
-    $ pytest
-
-### Live reloading and Sass CSS compilation
-
-Moved to [Live reloading and SASS compilation](http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html).
-
-## Deployment
-
-The following details how to deploy this application.
-
-### Docker
-
-See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
