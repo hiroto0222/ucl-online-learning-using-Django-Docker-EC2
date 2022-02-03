@@ -15,44 +15,6 @@
 </style>
 {% endblock css %}
 
-{% block landingpage %}
-<div class="container-scroller hero vh-100 d-flex align-items-center">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-5 col-md-8 mx-auto text-center">
-				<h1 class="font-weight-bold text-white pb-2">UCL Online Learning</h1>
-				<h4 class="py-2 display-4 mx-4 text-white">for the department of <br> <strong>Physics and Astronomy</h4>
-				<div class="mx-auto pt-2 col-lg-5 col-md-5">
-					<a type="button" class="btn btn-block btn-success font-weight-medium" href="{% url 'account_login' %}">
-						Get started
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-{% block content %}
-{% endblock content %}
-
-{% endblock landingpage %}
-{% extends "base.html" %}
-{% load static %}
-
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
-<style>
-	.hero {
-		background-image: url("{% static 'images/campus1.jpg' %}");
-		background-position: center;
-		background-size: cover;
-		background-attachment: fixed;
-		position: relative;
-		z-index: 2;
-	}
-</style>
-{% endblock css %}
-
 
 {% block landingpage %}
 <div class="container-scroller hero vh-100 d-flex align-items-center">
